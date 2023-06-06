@@ -3,7 +3,6 @@ from django.db import models
 from authentification.models import User
 
 class Client(models.Model):
-    id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
     email = models.EmailField(max_length=100)
@@ -16,7 +15,6 @@ class Client(models.Model):
 
 
 class Contract(models.Model):
-    id = models.AutoField(primary_key=True)
     contact_ventes = models.ForeignKey('authentification.User', on_delete=models.SET_NULL, null=True,related_name='contract_contact_ventes')
     client = models.ForeignKey('Client', on_delete=models.SET_NULL, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
@@ -34,7 +32,6 @@ class Event(models.Model):
         ('Terminer', 'Terminer'),
     )
 
-    id = models.AutoField(primary_key=True)
     contract = models.ForeignKey('Contract', on_delete=models.SET_NULL, null=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)

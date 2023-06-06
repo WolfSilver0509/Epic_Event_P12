@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'authentification',
     'epic',
-    'rest_framework_simplejwt',
+
 ]
 
 REST_FRAMEWORK = {
@@ -143,5 +144,5 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=10),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
-    'USER_ID_FIELD': 'user_id'
+    'USER_ID_FIELD': 'id'
 }

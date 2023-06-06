@@ -1,17 +1,49 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.db import models
+
+class ManagerUser(BaseUserManager):
+    def create_user(self, email, first_name, last_name, role, password=None):
+        if not email:
+            raise ValueError("Vous devez entrer un email")
+        if not first_name:
+            raise ValueError("Vous devez entrer un prénom")
+        if not last_name:
+            raise ValueError("Vous devez entrer un nom")
+        if not role:
+            raise ValueError("Vous devez entrer un rôle")
+
+        user = self.model(
+            email=self.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name,
+            role=role,
+        )
+        user.set_password(password)
+        user.save()
+        return user
+
+    def create_superuser(self, email, password=None):
+        user = self.model(
+            email=self.normalize_email(email),
+        )
+        user.set_password(password)
+        user.is_staff = True
+        user.is_admin = True
+        user.is_superuser = True
+        user.save()
+        return user
 
 class User(AbstractUser):
     ROLE_CHOICES = (
         ('GESTION', 'Gestion'),
-        ('VENTES', 'Vente'),
+        ('VENTE', 'Vente'),
         ('SUPPORT', 'Support'),
     )
-    id = models.AutoField(primary_key=True)
-    first_name = models.CharField(max_length=25)
-    last_name = models.CharField(max_length=25)
-    email = models.EmailField(max_length=100)
-    phone = models.CharField(max_length=20)
-    mobile = models.CharField(max_length=20)
-    company_name = models.CharField(max_length=250)
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES)
+    username = None
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, null=True, blank=True)
+    email = models.EmailField(unique=True, max_length=255, blank=False)
+
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+    objects = ManagerUser()
