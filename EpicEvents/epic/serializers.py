@@ -7,11 +7,14 @@ class ClientSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ContractSerializer(serializers.ModelSerializer):
+    payment_due = serializers.DateTimeField(format='%Y-%m-%d')
+
     class Meta:
         model = Contract
         fields = '__all__'
 
 class EventSerializer(serializers.ModelSerializer):
+    event_date = serializers.DateTimeField(format='%Y-%m-%d')
     class Meta:
         model = Event
         fields = '__all__'
