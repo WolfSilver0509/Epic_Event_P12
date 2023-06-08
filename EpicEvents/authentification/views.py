@@ -3,9 +3,13 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from authentification.serializers import UserSerializer
-
+from authentification.permissions import IsSuperOrGestion
+from rest_framework.permissions import IsAuthenticated
 
 class UserCreateAPIView(APIView):
+
+    permission_classes = [IsAuthenticated, IsSuperOrGestion]
+
     def post(self, request):
         """Crée un nouvel utilisateur.
         Crée un nouvel utilisateur en utilisant les informations fournies dans la requête post.

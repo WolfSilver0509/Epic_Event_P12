@@ -38,6 +38,6 @@ class UserAdmin(BaseUserAdmin):
 
 # Enregistrer le modèle utilisateur personnalisé dans l'interface d'administration
 admin.site.register(User, UserAdmin)
-# Supprimer le modèle utilisateur par défaut de l'interface d'administration
-admin.site.unregister(Group)
+# # Supprimer le modèle utilisateur par défaut de l'interface d'administration
+# admin.site.unregister(Group)
 

@@ -1,7 +1,19 @@
 from rest_framework import serializers
 from .models import Client, Contract, Event
+from authentification.models import User
+
+class ContactVenteSerializer(serializers.PrimaryKeyRelatedField):
+    def get_queryset(self):
+        queryset = User.objects.filter(role='VENTE')
+        return queryset
+
+class ContactSupportSerializer(serializers.PrimaryKeyRelatedField):
+    def get_queryset(self):
+        queryset = User.objects.filter(role='SUPPORT')
+        return queryset
 
 class ClientSerializer(serializers.ModelSerializer):
+    contact_ventes = ContactVenteSerializer()
     class Meta:
         model = Client
         fields = '__all__'

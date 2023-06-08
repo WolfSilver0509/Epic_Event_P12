@@ -19,9 +19,8 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework import routers
 
-from epic.views.client import ClientViewSet
-from epic.views.contract import ContractViewSet
-from epic.views.event import EventViewSet
+from epic.views import ClientViewSet, ContractViewSet ,EventViewSet
+
 
 # Ici nous créons notre routeur
 router = routers.SimpleRouter()
