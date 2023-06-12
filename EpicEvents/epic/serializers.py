@@ -13,12 +13,14 @@ class ContactSupportSerializer(serializers.PrimaryKeyRelatedField):
         return queryset
 
 class ClientSerializer(serializers.ModelSerializer):
-    contact_ventes = ContactVenteSerializer()
+    contact_ventes = ContactVenteSerializer(required=False)
+
     class Meta:
         model = Client
         fields = '__all__'
 
 class ContractSerializer(serializers.ModelSerializer):
+    contact_ventes = ContactVenteSerializer(required=False)
     payment_due = serializers.DateTimeField(format='%Y-%m-%d')
 
     class Meta:
@@ -26,6 +28,7 @@ class ContractSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class EventSerializer(serializers.ModelSerializer):
+    support_contact = ContactSupportSerializer()
     event_date = serializers.DateTimeField(format='%Y-%m-%d')
     class Meta:
         model = Event
