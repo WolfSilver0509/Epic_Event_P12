@@ -5,13 +5,13 @@ from rest_framework import serializers
 
 from epic.models import Contract
 from epic.serializers import ContractSerializer
-from epic.permissions import ViewOrUpdateSales
+from epic.permissions import SalesOrGestion
 
 
 class ContractViewSet(ModelViewSet):
     serializer_class = ContractSerializer
 
-    permission_classes = [IsAuthenticated, ViewOrUpdateSales]
+    permission_classes = [IsAuthenticated, SalesOrGestion]
 
     def perform_create(self,serializer):
         client = serializer.validated_data.get("client")
@@ -25,4 +25,4 @@ class ContractViewSet(ModelViewSet):
 
 
     def get_queryset(self):
-        return Contract.objects.filter(contact_ventes = self.request.user)
+        return Contract.objects.all()#filter(contact_ventes = self.request.user)

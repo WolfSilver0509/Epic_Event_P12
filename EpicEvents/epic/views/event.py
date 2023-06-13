@@ -4,11 +4,12 @@ from rest_framework.exceptions import PermissionDenied
 
 from epic.models import Event
 from epic.serializers import EventSerializer
+from epic.permissions import SupportOrSalesOrGestion
 
 class EventViewSet(ModelViewSet):
     serializer_class = EventSerializer
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, SupportOrSalesOrGestion]
 
     def perform_create(self, serializer):
         contrat = serializer.validated_data.get("contract")

@@ -24,7 +24,11 @@ class UserCreateAPIView(APIView):
         """
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            user = serializer.save()
+            if user.role == "GESTION":
+                user.is_staff = True
+                user.is_superuser = True
+                user.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
