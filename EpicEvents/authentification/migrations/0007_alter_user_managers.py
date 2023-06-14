@@ -4,15 +4,16 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('authentification', '0006_remove_user_company_name_remove_user_mobile_and_more'),
+        (
+            "authentification",
+            "0006_remove_user_company_name_remove_user_mobile_and_more",
+        ),
     ]
 
     operations = [
         migrations.AlterModelManagers(
-            name='user',
-            managers=[
-            ],
+            name="user",
+            managers=[],
         ),
     ]

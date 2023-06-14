@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -15,45 +14,93 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Client',
+            name="Client",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('first_name', models.CharField(max_length=25)),
-                ('last_name', models.CharField(max_length=25)),
-                ('email', models.EmailField(max_length=100)),
-                ('phone', models.CharField(max_length=20)),
-                ('mobile', models.CharField(max_length=20)),
-                ('company_name', models.CharField(max_length=250)),
-                ('date_created', models.DateTimeField(auto_now_add=True)),
-                ('date_updated', models.DateTimeField(auto_now=True)),
-                ('contact_ventes', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='client_contact_ventes', to=settings.AUTH_USER_MODEL)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("first_name", models.CharField(max_length=25)),
+                ("last_name", models.CharField(max_length=25)),
+                ("email", models.EmailField(max_length=100)),
+                ("phone", models.CharField(max_length=20)),
+                ("mobile", models.CharField(max_length=20)),
+                ("company_name", models.CharField(max_length=250)),
+                ("date_created", models.DateTimeField(auto_now_add=True)),
+                ("date_updated", models.DateTimeField(auto_now=True)),
+                (
+                    "contact_ventes",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="client_contact_ventes",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Contract',
+            name="Contract",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('date_created', models.DateTimeField(auto_now_add=True)),
-                ('date_updated', models.DateTimeField(auto_now=True)),
-                ('status', models.BooleanField(default=False)),
-                ('amount', models.FloatField()),
-                ('payment_due', models.DateTimeField()),
-                ('client', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='epic.client')),
-                ('contact_ventes', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='contract_contact_ventes', to=settings.AUTH_USER_MODEL)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("date_created", models.DateTimeField(auto_now_add=True)),
+                ("date_updated", models.DateTimeField(auto_now=True)),
+                ("status", models.BooleanField(default=False)),
+                ("amount", models.FloatField()),
+                ("payment_due", models.DateTimeField()),
+                (
+                    "client",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="epic.client",
+                    ),
+                ),
+                (
+                    "contact_ventes",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="contract_contact_ventes",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('date_created', models.DateTimeField(auto_now_add=True)),
-                ('date_updated', models.DateTimeField(auto_now=True)),
-                ('event_status', models.CharField(choices=[('A venir', 'A venir'), ('En cours', 'En cours'), ('Terminer', 'Terminer')], max_length=20)),
-                ('attendees', models.IntegerField()),
-                ('event_date', models.DateTimeField()),
-                ('notes', models.TextField()),
-                ('contract', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='epic.contract')),
-                ('support_contact', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='event_support_contact', to=settings.AUTH_USER_MODEL)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("date_created", models.DateTimeField(auto_now_add=True)),
+                ("date_updated", models.DateTimeField(auto_now=True)),
+                (
+                    "event_status",
+                    models.CharField(
+                        choices=[
+                            ("A venir", "A venir"),
+                            ("En cours", "En cours"),
+                            ("Terminer", "Terminer"),
+                        ],
+                        max_length=20,
+                    ),
+                ),
+                ("attendees", models.IntegerField()),
+                ("event_date", models.DateTimeField()),
+                ("notes", models.TextField()),
+                (
+                    "contract",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="epic.contract",
+                    ),
+                ),
+                (
+                    "support_contact",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        related_name="event_support_contact",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
         ),
     ]

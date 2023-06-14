@@ -6,8 +6,8 @@ from authentification.serializers import UserSerializer
 from authentification.permissions import IsSuperOrGestion
 from rest_framework.permissions import IsAuthenticated
 
-class UserCreateAPIView(APIView):
 
+class UserCreateAPIView(APIView):
     permission_classes = [IsAuthenticated, IsSuperOrGestion]
 
     def post(self, request):
@@ -55,4 +55,3 @@ class LoginAPIView(APIView):
             return Response(status=status.HTTP_200_OK)
         else:
             return Response({"error": "Email ou mot de passe invalide"}, status=400)
-

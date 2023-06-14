@@ -18,7 +18,5 @@ class ClientViewSet(ModelViewSet):
     def perform_update(self, serializer):
         serializer.save(contact_ventes=self.request.user)
 
-
     def get_queryset(self):
-        return Client.objects.all()#filter(contact_ventes = self.request.user)
-
+        return Client.objects.all()  # filter(contact_ventes = self.request.user)

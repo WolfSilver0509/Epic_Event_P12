@@ -13,16 +13,19 @@ class ContractViewSet(ModelViewSet):
 
     permission_classes = [IsAuthenticated, SalesOrGestion]
 
-    def perform_create(self,serializer):
+    def perform_create(self, serializer):
         client = serializer.validated_data.get("client")
         if client.contact_ventes == self.request.user:
-            if client.contract_set.filter(status = False):
-                raise PermissionDenied("Ce client à un contrat en attente de signature!")
+            if client.contract_set.filter(status=False):
+                raise PermissionDenied(
+                    "Ce client à un contrat en attente de signature!"
+                )
             else:
-                serializer.save(contact_ventes = self.request.user)
+                serializer.save(contact_ventes=self.request.user)
         else:
-            raise PermissionDenied("Vous n'êtes pas le contact ventes associé à ce client.") #serializers.ValidationError("Vous n'êtes pas le contact ventes associé à ce client.")
-
+            raise PermissionDenied(
+                "Vous n'êtes pas le contact ventes associé à ce client."
+            )  # serializers.ValidationError("Vous n'êtes pas le contact ventes associé à ce client.")
 
     def get_queryset(self):
-        return Contract.objects.all()#filter(contact_ventes = self.request.user)
+        return Contract.objects.all()  # filter(contact_ventes = self.request.user)
