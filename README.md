@@ -11,7 +11,7 @@ En tant que développeur de logiciels dans le département informatique, vous av
 
 L'entreprise est très appréciée pour les fêtes et les événements hors du commun qu'elle organise pour ses clients de renom. En interne, l'essentiel de votre travail consiste à gérer le logiciel obsolète de gestion de la relation client (CRM) de l'entreprise, qui effectue le suivi de tous les clients et événements.
 
-Cahier des charges:
+Cahier des charges :
 
 * Utiliser Python 3.
 * Empêcher une injection SQL.
@@ -34,7 +34,7 @@ Cahier des charges:
 ![MicrosoftTeams-image (2)](https://github.com/WolfSilver0509/Epic_Event_P12/assets/58182901/ac95598c-4b4f-43d1-a2de-1e3021929974)
 
 
-:pushpin: ## Utilisation : Voici la liste des outils utilisées pour ce projet :
+:pushpin: ## Utilisation : Voici la liste des outils utilisés pour ce projet :
 
 
 #### Outils : 
@@ -72,77 +72,77 @@ tzdata==2023.3
 
 
 :floppy_disk: ### PostgreSQL
-Vous devez avoir PostgreSQL, version 14 minimum, installé sur votre ordinateur (si ce n'est pas le cas vous pouvez le télécharger [ici - PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+Vous devez avoir PostgreSQL, version 14 minimum, installé sur votre ordinateur (si ce n'est pas le cas, vous pouvez le télécharger [ici - PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
-:mag: Suite a ça je vous laisse installer ce logiciel sur votre ordinateur. Si vous avez des diffuculter vous pouvez suivre ce [tuto](https://www.postgresql.r2schools.com/how-to-install-postgresql-11-and-pgadmin-on-windows-11/) sur l'installation complete.
+:mag: Suite à ça je vous laisse installer ce logiciel sur votre ordinateur. Si vous avez des difficultés, vous pouvez suivre ce [tuto](https://www.postgresql.r2schools.com/how-to-install-postgresql-11-and-pgadmin-on-windows-11/) sur l'installation complète.
 
-:point_right: Pour la suite aller sur SQL Shell,  je vous laisse crée une base de donnée que nous allons nommée epicevent_db par exemple : 
+:point_right: Pour la suite aller sur SQL Shell,  je vous laisse créer une base de donnée que nous allons nommer epicevent_db par exemple : 
 
 ```
 CREATE DATABASE epicevent_db;
 ```
-:point_right: Ensuite nous allons crée un user pour cette base de donner , par exemple  user = lyoko avec un mots de passe = password":
+:point_right: Ensuite, nous allons créer un user pour cette base de donner , par exemple  user = lyoko avec un mot de passe = password":
 
 ```
 CREATE USER lyoko WITH ENCRYPTED PASSWORD 'password';
 ```
-:point_right: Ensuite nous accordons tous les privilèges de cette base de données spécifique à notre utilisateur spécifié.
+:point_right: Ensuite, nous accordons tous les privilèges de cette base de données spécifique à notre utilisateur spécifié.
 
 ```
 GRANT ALL PRIVILEGES ON DATABASE epicevent_db TO lyoko;
 ```
 
-Une fois cela fait vous pouvez vous rendre sur l'application pgAdmin 4 et voir votre base de donnée vide mais présente ! 
+Une fois cela fait vous pouvez vous rendre sur l'application pgAdmin 4 et voir votre base de donnée vide, mais présente ! 
 
 :computer: ### Python
-Vous devez avoir Python, version 3.9 minimum, installé sur votre ordinateur (si ce n'est pas le cas vous pouvez le télécharger [ici - Python](https://www.python.org/downloads/))
+Vous devez avoir Python, version 3.9 minimum, installé sur votre ordinateur (si ce n'est pas le cas, vous pouvez le télécharger [ici - Python](https://www.python.org/downloads/))
 
 
-:mag: Ensuite téléchargez le repo version zip sur github  :
+:mag: Ensuite, téléchargez le repo version zip sur github  :
 
 
 :point_right: Créez un nouveau dossier sur votre bureau avec le nom que vous souhaitez par exemple le nom du projet : EpicEvent_P12
 
 
 
-:point_right: Dé-zippez le contenu du dossier zip dans ce nouveau dossier : EpicEvent_P12
+:point_right: Dézippez le contenu du dossier zip dans ce nouveau dossier : EpicEvent_P12
 
 
 
-Une fois cela fait ouvrez le terminal de commande (Invite de commande) :
+Une fois cela fait, ouvrer le terminal de commande (Invite de commande) :
 
 
 
-:point_right: Une fois le terminal ouvert nous allons rejoindre notre bureau dans un premier temps
+:point_right: Une fois le terminal ouvert, nous allons rejoindre notre bureau dans un premier temps
 ```
 cd desktop
 ```
-:point_right: Ensuite nous allons rejoindre notre nouveau dossier sur le bureau
+:point_right: Ensuite, nous allons rejoindre notre nouveau dossier sur le bureau
 ```
 cd EpicEvent_P12
 ```
-:point_right: Une fois là nous allons créer notre environnement virtuel ( exemple : envVirtuel ) sur python avec cette commande
+:point_right: Une fois là, nous allons créer notre environnement virtuel ( exemple : envVirtuel ) sur python avec cette commande
 ```
 python -m venv envVirtuel
 ```
-:point_right: Une fois l'environnement créé nous allons nous rendre dans le dossier de l'environnement virtuel afin de l'activer:
+:point_right: Une fois l'environnement créé, nous allons nous rendre dans le dossier de l'environnement virtuel afin de l'activer :
 
 
 Pour cela il nous faut récupérer le chemin du dossier:
 
 
 * Rendez-vous sur votre bureau
-* Allez dans le dossier "SoftDesk_P10"
+* Allez dans le dossier "EpicEvent_P12"
 * Maj + Clic Droit sur le dossier "envVirtuel"
 * Faire : "Copier en tant que chemin d'accès"
 
 
 
-:point_right: Une fois cela fait, retournez sur le terminal copiez votre chemin d'accès en rajoutant "\Scripts\activate" à la fin :
+:point_right: Une fois cela fait, retournez sur le terminal, copiez votre chemin d'accès en rajoutant "\Scripts\activate" à la fin :
 ```
 C:\Users\wolf\Desktop\EpicEvent_P12\envVirtuel\Scripts\activate
 ```
-:point_right: Si tout va bien vous devez voir apparaître un (env) à côté de votre chemin d'accès, comme ceci
+:point_right: Si tout va bien, vous devez voir apparaître un (env) à côté de votre chemin d'accès, comme ceci
 ```
 (env) C:\Users\wolf\Desktop\EpicEvent_P12>
 ```
@@ -150,11 +150,11 @@ C:\Users\wolf\Desktop\EpicEvent_P12\envVirtuel\Scripts\activate
 ```
 (env) C:\Users\wolf\Desktop\EpicEvent_P12> cd EpicEvent
 ```
-:point_right: Maintenant nous allons télécharger les librairies associés au projet nécessaire, pour cela tapez
+:point_right: Maintenant, nous allons télécharger les librairies associées au projet nécessaire, pour cela, tapez
 ```
 pip install -r requirements.txt
 ```
-:point_right: Par la suite avant de lancer votre serveur veillez à ouvrire un ide pour ouvrire votre projet.Dans setting.py du projet vous allez mettre à jour les informations de votre base de donnée dans la partie databases comme ci joint pour la connecter au projet : 
+:point_right: Par la suite, avant de lancer votre serveur, veillez à ouvrir un ide pour ouvrir votre projet. Dans setting.py du projet, vous allez mettre à jour les informations de votre base de donnée dans la partie data bases comme ci-joint pour la connecter au projet : 
 ```
 DATABASES = {
     'default': {
@@ -167,15 +167,15 @@ DATABASES = {
     }
 }
 ```
-:point_right: Une fois cela fait , vous vous rendez dans votre terminal afin de faire une migration ce qui va permettre de crées les tables du projet dans votre base de donnée. 
+:point_right: Une fois cela fait, vous vous rendez dans votre terminal afin de faire une migration, ce qui va permettre de créer les tables du projet dans votre base de donnée. 
 ```
 python manage.py migrate
 ```
-:point_right: derniére étapes, vous allez crée un super_user qui va avoir les droits de crée vos différentes équipes ( VENTE , SUPPORT , GESTION ) :
+:point_right: dernière étapes, vous allez crée un super_user qui va avoir les droits de crée vos différentes équipes ( VENTE , SUPPORT , GESTION ) :
 ```
 python manage.py createsuperuser
 ```
-:point_right: Suite à ça vous pouvez entrer les informations de votre super_user, comme fin vous aurez ce message :
+:point_right: Suite à ça vous pouvez entrer les informations de votre super_user, comme fin, vous aurez ce message :
 ```
 Username (leave blank to use 'admin'): hopper
 Email address: hopper@gmail.com
@@ -186,22 +186,21 @@ Superuser created successfully.
 :computer: ### Tout est fin prêt, pour lancer votre projet Django  DRF sur un navigateur !
 
 
-:point_right: Pour lancer le serveur tapez la commande suivante :
+:point_right: Pour lancer le serveur, tapez la commande suivante :
 ```
 python manage.py runserver
 ``` 
 
-:mag: Afin de tester les différentes endpoints du projets voici une documentation complete du projet  :  [ici - Documentation Postman](https://documenter.getpostman.com/view/17892890/2s93sZ7uPu#intro)
+:mag: Afin de tester les différentes endpoints du projet voici une documentation complète du projet  :  [ici - Documentation Postman](https://documenter.getpostman.com/view/17892890/2s93sZ7uPu#intro)
 
 
-:mag: Il ne vous reste plus qu'à parcourir la documentation de Epic Event afin d'essayer toutes ces points de terminaison d'API.
+:mag: Il ne vous reste plus qu'à parcourir la documentation de Epic Event dans le but d'essayer tous ces points de terminaison d'API.
 
 
 
 
 <h3 align="left">Languages and Tools:</h3>
 <p align="left"> <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
-
 
 
 
