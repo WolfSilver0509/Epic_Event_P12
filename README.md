@@ -29,7 +29,13 @@ Cahier des charges:
         ** Effectuer le logging et la surveillance. Toutes les applications doivent consigner les exceptions et les erreurs produites.
 
 
+:pushpin: ##Voici le diagramme entité-relation du projet Epic_Event: 
+
+![MicrosoftTeams-image (2)](https://github.com/WolfSilver0509/Epic_Event_P12/assets/58182901/ac95598c-4b4f-43d1-a2de-1e3021929974)
+
+
 :pushpin: ## Utilisation : Voici la liste des outils utilisées pour ce projet :
+
 
 #### Outils : 
 
