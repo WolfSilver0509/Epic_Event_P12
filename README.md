@@ -70,7 +70,7 @@ Vous devez avoir PostgreSQL, version 14 minimum, installé sur votre ordinateur 
 
 :mag: Suite a ça je vous laisse installer ce logiciel sur votre ordinateur. Si vous avez des diffuculter vous pouvez suivre ce [tuto](https://www.postgresql.r2schools.com/how-to-install-postgresql-11-and-pgadmin-on-windows-11/) sur l'installation complete.
 
-:point_right: Pour la suite je vous laisse crée une base de donnée que nous allons nommée epicevent_db par exemple : 
+:point_right: Pour la suite aller sur SQL Shell,  je vous laisse crée une base de donnée que nous allons nommée epicevent_db par exemple : 
 
 ```
 CREATE DATABASE epicevent_db;
