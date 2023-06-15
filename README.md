@@ -3,7 +3,7 @@
 
 Projet n°12 de la formation développeur d'Application Python.
 
-:lock: ## Introduction : 
+## :lock: Introduction : 
 
 Vous travaillez chez Epic Events, une entreprise de conseil et de gestion dans l'événementiel qui répond aux besoins des start-up voulant organiser des « fêtes épiques ».
 
@@ -29,12 +29,12 @@ Cahier des charges :
         ** Effectuer le logging et la surveillance. Toutes les applications doivent consigner les exceptions et les erreurs produites.
 
 
-:pushpin: ##Voici le diagramme entité-relation du projet Epic_Event: 
+## :pushpin:  Voici le diagramme entité-relation du projet Epic_Event: 
 
 ![MicrosoftTeams-image (2)](https://github.com/WolfSilver0509/Epic_Event_P12/assets/58182901/ac95598c-4b4f-43d1-a2de-1e3021929974)
 
 
-:pushpin: ## Utilisation : Voici la liste des outils utilisés pour ce projet :
+## :pushpin: Utilisation : Voici la liste des outils utilisés pour ce projet :
 
 
 #### Outils : 
@@ -68,10 +68,10 @@ tzdata==2023.3
 
 
 
-:pushpin: ## Installation du projet : 
+## :pushpin: Installation du projet : 
 
 
-:floppy_disk: ### PostgreSQL
+### :floppy_disk: PostgreSQL
 Vous devez avoir PostgreSQL, version 14 minimum, installé sur votre ordinateur (si ce n'est pas le cas, vous pouvez le télécharger [ici - PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 :mag: Suite à ça je vous laisse installer ce logiciel sur votre ordinateur. Si vous avez des difficultés, vous pouvez suivre ce [tuto](https://www.postgresql.r2schools.com/how-to-install-postgresql-11-and-pgadmin-on-windows-11/) sur l'installation complète.
@@ -94,7 +94,7 @@ GRANT ALL PRIVILEGES ON DATABASE epicevent_db TO lyoko;
 
 Une fois cela fait vous pouvez vous rendre sur l'application pgAdmin 4 et voir votre base de donnée vide, mais présente ! 
 
-:computer: ### Python
+### :computer:  Python
 Vous devez avoir Python, version 3.9 minimum, installé sur votre ordinateur (si ce n'est pas le cas, vous pouvez le télécharger [ici - Python](https://www.python.org/downloads/))
 
 
@@ -183,7 +183,7 @@ Password: ********
 Password (again): ********
 Superuser created successfully.
 ```
-:computer: ### Tout est fin prêt, pour lancer votre projet Django  DRF sur un navigateur !
+### :computer:  Tout est fin prêt, pour lancer votre projet Django  DRF sur un navigateur !
 
 
 :point_right: Pour lancer le serveur, tapez la commande suivante :
