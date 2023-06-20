@@ -6,11 +6,16 @@ from epic.permissions import SalesOrGestion
 from epic.models import Client
 from epic.serializers import ClientSerializer
 
+from rest_framework import filters
 
 class ClientViewSet(ModelViewSet):
     serializer_class = ClientSerializer
 
     permission_classes = [IsAuthenticated, SalesOrGestion]
+
+    #Rajout des filtres pour rechercher par des API Endpoint /////////////////////////////////
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['first_name', 'last_name', 'email']
 
     def perform_create(self, serializer):
         serializer.save(contact_ventes=self.request.user)

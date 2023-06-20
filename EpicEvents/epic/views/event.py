@@ -5,12 +5,17 @@ from rest_framework.exceptions import PermissionDenied
 from epic.models import Event
 from epic.serializers import EventSerializer
 from epic.permissions import SupportOrSalesOrGestion
-
+from rest_framework import filters
 
 class EventViewSet(ModelViewSet):
     serializer_class = EventSerializer
 
     permission_classes = [IsAuthenticated, SupportOrSalesOrGestion]
+
+    # Rajout des filtres pour rechercher par des API Endpoint /////////////////////////////////
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['contract__client__first_name', 'contract__client__last_name', 'contract__client__email',
+                     'event_date']
 
     def perform_create(self, serializer):
         contrat = serializer.validated_data.get("contract")

@@ -6,12 +6,16 @@ from rest_framework import serializers
 from epic.models import Contract
 from epic.serializers import ContractSerializer
 from epic.permissions import SalesOrGestion
-
+from rest_framework import filters
 
 class ContractViewSet(ModelViewSet):
     serializer_class = ContractSerializer
 
     permission_classes = [IsAuthenticated, SalesOrGestion]
+
+    # Rajout des filtres pour rechercher par des API Endpoint /////////////////////////////////
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['client__first_name', 'client__last_name', 'client__email', 'date_created', 'amount']
 
     def perform_create(self, serializer):
         client = serializer.validated_data.get("client")
