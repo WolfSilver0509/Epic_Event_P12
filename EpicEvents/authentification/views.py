@@ -6,7 +6,6 @@ from authentification.serializers import UserSerializer
 from authentification.permissions import IsSuperOrGestion
 from rest_framework.permissions import IsAuthenticated
 
-
 class UserCreateAPIView(APIView):
     permission_classes = [IsAuthenticated, IsSuperOrGestion]
 
